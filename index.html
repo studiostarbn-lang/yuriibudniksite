@@ -45,7 +45,6 @@ fbq('track','PageView');
   .stat-num{font-family:'Unbounded',sans-serif;font-size:44px;font-weight:900;color:var(--black);line-height:0.95;letter-spacing:-0.02em}
   .stat-label{font-size:20px;color:rgba(8,8,8,0.68);line-height:1.2;max-width:20ch}
   .stat-counter{font-family:'Unbounded',sans-serif;font-size:44px;font-weight:900;color:var(--black);line-height:0.95;letter-spacing:-0.02em}
-  .stat-review-link{margin-top:2px;display:inline-block;font-size:17px;color:rgba(8,8,8,0.78);text-decoration:underline;text-underline-offset:3px}
 
   .section{padding:80px 40px}
   .section-tag{font-family:'Unbounded',sans-serif;font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);margin-bottom:40px;display:flex;align-items:center;gap:12px}
@@ -71,9 +70,12 @@ fbq('track','PageView');
   .creatives-title{font-family:'Unbounded',sans-serif;font-size:clamp(24px,6vw,48px);font-weight:900;text-transform:uppercase;margin-bottom:12px}
   .creatives-title em{font-style:normal;color:var(--accent)}
   .creatives-sub{font-size:14px;color:rgba(245,240,232,0.4)}
-  .creatives-track-wrap{overflow:hidden;mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent)}
+  .creatives-track-wrap{overflow-x:auto;overflow-y:hidden;mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent);-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab}
+  .creatives-track-wrap::-webkit-scrollbar{display:none}
+  .creatives-track-wrap:active{cursor:grabbing}
   .creatives-track{display:flex;gap:16px;width:max-content;animation:scrollTrack 28s linear infinite;padding:20px 0}
   .creatives-track:hover{animation-play-state:paused}
+  .creatives-track-wrap:hover .creatives-track,.creatives-track-wrap:active .creatives-track,.creatives-track-wrap:focus-within .creatives-track{animation-play-state:paused}
   @keyframes scrollTrack{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
   .creo-card{flex-shrink:0;width:160px;height:284px;border-radius:4px;overflow:hidden;cursor:pointer}
   .creo-card img{width:100%;height:100%;object-fit:cover;display:block}
@@ -94,6 +96,7 @@ fbq('track','PageView');
   .offer-includes{margin-top:24px;display:flex;flex-direction:column;gap:10px}
   .offer-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.5}
   .offer-item::before{content:'→';color:var(--accent);font-family:'Unbounded',sans-serif;font-size:11px;flex-shrink:0;margin-top:2px}
+  .offer-cta{margin-top:28px;display:block;width:100%;text-align:center}
   .offer-price{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;color:var(--accent);margin-top:24px}
   .price-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:20px}
   .price-big{font-family:'Unbounded',sans-serif;font-size:44px;font-weight:900;color:var(--accent);line-height:1}
@@ -101,7 +104,7 @@ fbq('track','PageView');
   .price-note{font-size:12px;color:rgba(245,240,232,0.4);margin-top:6px}
 
   .clients-section{padding:80px 40px;background:var(--gray)}
-  .clients-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:40px}
+  .clients-grid{display:grid;grid-template-columns:1fr;gap:2px;margin-top:40px}
   .client-card{background:#202020;padding:24px 20px;display:flex;gap:16px;align-items:center}
   .client-avatar{width:76px;height:76px;border-radius:50%;flex-shrink:0;overflow:hidden;background:#080808;border:2px solid rgba(200,255,0,0.2)}
   .client-avatar img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;border-radius:50%;background:#080808}
@@ -171,7 +174,6 @@ fbq('track','PageView');
     .stat-item{min-height:152px;padding:24px 20px}
     .stat-num,.stat-counter{font-size:56px}
     .stat-label{font-size:29px}
-    .stat-review-link{font-size:22px}
     .section{padding:100px 48px}
     .how-section{padding:100px 48px}
     .creatives-section{padding:100px 0}
@@ -179,6 +181,7 @@ fbq('track','PageView');
     .offer-section{padding:100px 48px}
     .offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
     .offer-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+    .offer-cta{width:auto;display:inline-block;text-align:left}
     .clients-section{padding:100px 48px}
     .clients-grid{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
     .client-card{padding:24px 20px}
@@ -229,9 +232,9 @@ fbq('track','PageView');
 <div class="stats-bar">
   <div class="stat-item"><div class="stat-counter" data-count-to="6">0+</div><div class="stat-label">років досвіду в таргеті</div></div>
   <div class="stat-item"><div class="stat-counter" data-count-to="80">0+</div><div class="stat-label">кейсів, за які не соромно</div></div>
-  <div class="stat-item"><div class="stat-counter" data-count-to="60">0+</div><div class="stat-label">чесних відгуків клієнтів</div><a class="stat-review-link" href="https://www.instagram.com/juriy_budnik/" target="_blank">Переглянути відгуки</a></div>
+  <div class="stat-item"><div class="stat-counter" data-count-to="60">0+</div><div class="stat-label">чесних відгуків клієнтів</div></div>
   <div class="stat-item"><div class="stat-num">FB+IG</div><div class="stat-label">платформи</div></div>
-  <div class="stat-item"><div class="stat-num">7 днів</div><div class="stat-label">до запуску</div></div>
+  <div class="stat-item"><div class="stat-counter" data-count-to="7">0+</div><div class="stat-label">тестовий період</div></div>
 </div>
 
 <section class="section">
@@ -299,7 +302,7 @@ fbq('track','PageView');
           <div class="offer-item">Звіт через 7 днів: що відбулось і які наступні кроки</div>
           <div class="offer-item">Порада як зробити так щоб люди купували, а не просто писали</div>
         </div>
-        <a href="#contact" class="btn-primary" style="margin-top:28px;display:inline-block">Хочу тест 7 днів за 500 zł</a>
+        <a href="#contact" class="btn-primary offer-cta">Хочу тест на 7 днів</a>
       </div>
     </div>
   </div>
@@ -413,7 +416,7 @@ fbq('track','PageView');
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
   function animateCounter(el, to) {
-    const duration = 1200;
+    const duration = 2200;
     const start = performance.now();
     function frame(now) {
       const p = Math.min((now - start) / duration, 1);
