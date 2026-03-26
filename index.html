@@ -46,6 +46,21 @@ fbq('track','PageView');
   .stat-item:last-child{border-right:none}
   .stat-num{font-family:'Unbounded',sans-serif;font-size:28px;font-weight:900;color:var(--black);line-height:1}
   .stat-label{font-size:11px;color:rgba(8,8,8,0.6)}
+  .stat-counter{font-family:'Unbounded',sans-serif;font-size:28px;font-weight:900;color:var(--black);line-height:1}
+  .stat-review-link{margin-top:8px;display:inline-block;font-size:11px;color:rgba(8,8,8,0.7);text-decoration:underline;text-underline-offset:3px}
+  .stat-gauge{position:relative;width:152px;height:90px}
+  .stat-gauge-arc{position:absolute;left:50%;bottom:10px;width:128px;height:64px;border:3px solid rgba(8,8,8,0.25);border-bottom:none;border-radius:128px 128px 0 0;transform:translateX(-50%)}
+  .stat-gauge-needle{position:absolute;left:50%;bottom:12px;width:3px;height:56px;background:var(--black);border-radius:3px;transform-origin:bottom center;transform:translateX(-50%) rotate(-80deg);transition:transform 1.2s cubic-bezier(.2,.9,.2,1)}
+  .stat-gauge.active .stat-gauge-needle{transform:translateX(-50%) rotate(80deg)}
+  .stat-gauge-scale{position:absolute;left:50%;bottom:10px;width:136px;height:66px;transform:translateX(-50%);font-family:'Unbounded',sans-serif;font-size:9px;color:rgba(8,8,8,0.62)}
+  .stat-gauge-scale span{position:absolute;line-height:1}
+  .stat-gauge-scale span:nth-child(1){left:0;bottom:10px}
+  .stat-gauge-scale span:nth-child(2){left:16px;bottom:30px}
+  .stat-gauge-scale span:nth-child(3){left:36px;bottom:45px}
+  .stat-gauge-scale span:nth-child(4){left:60px;bottom:54px}
+  .stat-gauge-scale span:nth-child(5){left:84px;bottom:45px}
+  .stat-gauge-scale span:nth-child(6){left:104px;bottom:30px}
+  .stat-gauge-scale span:nth-child(7){left:122px;bottom:10px}
 
   .section{padding:80px 40px}
   .section-tag{font-family:'Unbounded',sans-serif;font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);margin-bottom:40px;display:flex;align-items:center;gap:12px}
@@ -102,14 +117,14 @@ fbq('track','PageView');
 
   .clients-section{padding:80px 40px;background:var(--gray)}
   .clients-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:40px}
-  .client-card{background:#202020;padding:20px 16px;display:flex;gap:14px;align-items:center}
-  .client-avatar{width:56px;height:56px;border-radius:50%;flex-shrink:0;overflow:hidden;background:#1a1a1a;border:2px solid rgba(200,255,0,0.15)}
-  .client-avatar img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+  .client-card{background:#202020;padding:24px 20px;display:flex;gap:16px;align-items:center}
+  .client-avatar{width:76px;height:76px;border-radius:50%;flex-shrink:0;overflow:hidden;background:#080808;border:2px solid rgba(200,255,0,0.2)}
+  .client-avatar img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;border-radius:50%;background:#080808}
   .client-info{display:flex;flex-direction:column;gap:2px;min-width:0}
-  .client-name{font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;line-height:1.3}
-  .client-niche{font-size:11px;color:rgba(245,240,232,0.4);margin-top:2px}
-  .client-city{font-size:10px;color:rgba(245,240,232,0.25)}
-  .client-handle{font-size:10px;color:var(--accent);margin-top:3px;word-break:break-all}
+  .client-name{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;line-height:1.3}
+  .client-niche{font-size:13px;color:rgba(245,240,232,0.45);margin-top:2px}
+  .client-city{font-size:12px;color:rgba(245,240,232,0.3)}
+  .client-handle{font-size:12px;color:var(--accent);margin-top:4px;word-break:break-all}
 
   /* WHY - mobile photo wrapper with badge overlay */
   .why-section{padding:80px 40px;background:var(--black)}
@@ -130,6 +145,7 @@ fbq('track','PageView');
   .why-point-icon{color:var(--accent);font-size:16px;flex-shrink:0;margin-top:2px}
   .why-point-title{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;margin-bottom:4px}
   .why-point-desc{font-size:12px;color:rgba(245,240,232,0.5);line-height:1.6}
+  .why-content{max-width:760px;margin:0 auto}
 
   .cta-section{padding:80px 40px;background:var(--black);position:relative;overflow:hidden;text-align:center}
   .cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(200,255,0,0.07) 0%,transparent 70%);pointer-events:none}
@@ -137,6 +153,8 @@ fbq('track','PageView');
   .cta-title{font-family:'Unbounded',sans-serif;font-size:clamp(32px,9vw,72px);font-weight:900;line-height:0.95;text-transform:uppercase;margin-bottom:40px}
   .cta-title .line2{-webkit-text-stroke:1px rgba(245,240,232,0.25);color:transparent}
   .cta-form{display:flex;flex-direction:column;gap:0;max-width:480px;margin:0 auto 20px}
+  .phone-row{display:flex;gap:2px}
+  .code-select{width:104px;background:var(--gray);border:none;color:var(--white);font-family:'Onest',sans-serif;font-size:16px;padding:18px 12px;outline:none}
   .cta-input{width:100%;background:var(--gray);border:none;color:var(--white);font-family:'Onest',sans-serif;font-size:16px;padding:18px 20px;outline:none}
   .cta-input::placeholder{color:rgba(245,240,232,0.3)}
   .cta-submit{width:100%;background:var(--accent);color:var(--black);font-family:'Unbounded',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:18px;border:none;cursor:pointer;margin-top:2px}
@@ -178,7 +196,7 @@ fbq('track','PageView');
     .client-card{padding:24px 20px}
     .why-section{padding:100px 48px}
     .why-photo-mobile-wrap{display:none}
-    .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+    .why-grid{display:grid;grid-template-columns:minmax(0,520px) minmax(0,760px);justify-content:center;gap:64px;align-items:start}
     .why-photo-desktop-wrap{position:relative;display:block}
     .why-photo-desktop{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;filter:grayscale(15%);display:block}
     .why-photo-badge-desktop{position:absolute;bottom:-20px;right:-20px;background:var(--accent);padding:20px 24px}
@@ -186,6 +204,7 @@ fbq('track','PageView');
     .why-photo-badge-desktop .b-text{font-family:'Onest',sans-serif;font-size:13px;color:rgba(8,8,8,0.7);margin-top:4px}
     .cta-section{padding:100px 48px}
     .cta-form{flex-direction:row}
+    .phone-row{flex:1}
     .cta-input{flex:1;width:auto}
     .cta-submit{width:auto;margin-top:0}
     footer{flex-direction:row;justify-content:space-between;align-items:center;padding:40px 48px}
@@ -204,13 +223,13 @@ fbq('track','PageView');
   <div class="hero-bg"></div>
   <div class="hero-label">Facebook & Instagram Ads · Польща</div>
   <h1 class="hero-title">
-    <span class="la">Клієнти</span><br>
-    <span>для твого</span><br>
-    <span class="ls">бізнесу</span><br>
-    <span>в Польщі</span>
+    <span class="la">Завалю ваш</span><br>
+    <span>бізнес у Польщі</span><br>
+    <span class="ls">клієнтами</span><br>
+    <span>з Instagram та Facebook</span>
   </h1>
   <div class="hero-bottom-row">
-    <p class="hero-sub">Ти переїхав у Польщу і побудував бізнес. Тепер час щоб він <strong>сам приводив клієнтів</strong> — без сарафану, без чекання, без "може хтось порекомендує".</p>
+    <p class="hero-sub">Ви переїхали у Польщу і побудували бізнес. Тепер час, щоб він <strong>сам приводив клієнтів</strong> — без сарафану, без чекання, без "може хтось порекомендує".</p>
     <div class="hero-cta-group">
       <a href="#contact" class="btn-primary">Хочу більше клієнтів</a>
       <button class="btn-secondary" onclick="document.getElementById('how').scrollIntoView()">Як це працює?</button>
@@ -220,8 +239,16 @@ fbq('track','PageView');
 </section>
 
 <div class="stats-bar">
-  <div class="stat-item"><div class="stat-num">5+</div><div class="stat-label">років у таргеті</div></div>
-  <div class="stat-item"><div class="stat-num">12+</div><div class="stat-label">клієнтів у Польщі</div></div>
+  <div class="stat-item">
+    <div class="stat-gauge" id="yearsGauge">
+      <div class="stat-gauge-arc"></div>
+      <div class="stat-gauge-needle"></div>
+      <div class="stat-gauge-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span></div>
+    </div>
+    <div class="stat-label">6 років у таргеті</div>
+  </div>
+  <div class="stat-item"><div class="stat-counter" data-count-to="80">0+</div><div class="stat-label">кейсів, за які не соромно</div></div>
+  <div class="stat-item"><div class="stat-counter" data-count-to="60">0+</div><div class="stat-label">чесних відгуків клієнтів</div><a class="stat-review-link" href="https://www.instagram.com/juriy_budnik/" target="_blank">Переглянути відгуки</a></div>
   <div class="stat-item"><div class="stat-num">FB+IG</div><div class="stat-label">платформи</div></div>
   <div class="stat-item"><div class="stat-num">7 днів</div><div class="stat-label">до запуску</div></div>
 </div>
@@ -229,19 +256,19 @@ fbq('track','PageView');
 <section class="section">
   <div class="section-tag">Впізнаєш себе?</div>
   <div class="problem-grid fade-up">
-    <div class="problem-card"><div class="problem-num">01</div><div class="problem-icon">💸</div><div class="problem-title">Вже платив за рекламу — і нічого</div><div class="problem-text">Фрілансер взяв гроші, запустив щось, потім пропав. Результату нуль. І тепер страшно пробувати знову.</div></div>
-    <div class="problem-card"><div class="problem-num">02</div><div class="problem-icon">🌫️</div><div class="problem-title">Клієнти є, але їх треба чекати</div><div class="problem-text">Хтось порекомендував, хтось знайшов сам. А стабільного потоку нових людей — немає.</div></div>
+    <div class="problem-card"><div class="problem-num">01</div><div class="problem-icon">🧍‍♂️💻🫠</div><div class="problem-title">Працювали з криворукими спецами</div><div class="problem-text">Наймали якогось смм-ника по дешевому прайсу і сподівались, що він дасть результат, а він усе про*бав?</div></div>
+    <div class="problem-card"><div class="problem-num">02</div><div class="problem-icon">🫁</div><div class="problem-title">Клієнти приходять тільки по сарафані</div><div class="problem-text">І то, яка останнім часом ледве-ледве дихає?</div></div>
     <div class="problem-card"><div class="problem-num">03</div><div class="problem-icon">🤷</div><div class="problem-title">Польща — це не Україна</div><div class="problem-text">Інша аудиторія, інша мова, інші очікування. Те що працювало вдома — тут може взагалі не зайти.</div></div>
-    <div class="problem-card"><div class="problem-num">04</div><div class="problem-icon">⏰</div><div class="problem-title">Ти ведеш бізнес, а не рекламний кабінет</div><div class="problem-text">Часу немає. Розбиратися самому — теж. А хороший результат без постійної уваги не з'являється.</div></div>
+    <div class="problem-card"><div class="problem-num">04</div><div class="problem-icon">🐙</div><div class="problem-title">Хочете вести бізнес, а не довбатись з рекламним кабінетом</div><div class="problem-text">Ви ж підприємець, а не восьминіг, щоб на вас усе трималось.</div></div>
   </div>
 </section>
 
 <section class="how-section" id="how">
   <div class="section-tag">Процес роботи</div>
-  <h2 class="how-title fade-up">Як це працює <em>на практиці</em></h2>
+  <h2 class="how-title fade-up">Чому мені не пох*** на ваш бізнес?<br><em>І як працюю я</em></h2>
   <div class="steps">
-    <div class="step fade-up"><div class="step-num">01</div><div><div class="step-title">Розбираємо твій бізнес</div><div class="step-desc">Говоримо про продукт, клієнтів, конкурентів. Мені важливо зрозуміти твій бізнес зсередини — без цього реклама буде стріляти навмання.</div></div></div>
-    <div class="step fade-up"><div class="step-num">02</div><div><div class="step-title">Формуємо пропозицію, від якої складно відмовитись</div><div class="step-desc">Що саме побачить людина в рекламі. Яка причина написати тобі прямо зараз. Без чіткої відповіді на це — ніяка реклама не працює.</div></div></div>
+    <div class="step fade-up"><div class="step-num">01</div><div><div class="step-title">Розбираю до дрібних деталей ваш бізнес і те, як працює</div><div class="step-desc">Мені треба знати основні цифри: ціна кліку, ціна заявки і ціна клієнта.</div></div></div>
+    <div class="step fade-up"><div class="step-num">02</div><div><div class="step-title">@башимо вам пропозицію, від якої складно відмовитись</div><div class="step-desc">Щоб у рекламі людина бачила не просто чергового конкурента, а подачу рівня: «Вау, цікаво, розкажіть детальніше».</div></div></div>
     <div class="step fade-up"><div class="step-num">03</div><div><div class="step-title">Робимо рекламу і запускаємо</div><div class="step-desc">Створюю картинки і тексти для реклами, налаштовую кампанії. Перші результати видно вже в перший тиждень.</div></div></div>
     <div class="step fade-up"><div class="step-num">04</div><div><div class="step-title">Слідкую, правлю, покращую</div><div class="step-desc">Що не працює — вимикаю. Що дає заявки — посилюю. Раз на тиждень звіт: що відбувається і що далі.</div></div></div>
   </div>
@@ -250,8 +277,8 @@ fbq('track','PageView');
 <section class="creatives-section">
   <div class="creatives-header">
     <div class="section-tag">Рівень крео</div>
-    <h2 class="creatives-title fade-up">Реклама, яку <em>не скіпають</em></h2>
-    <p class="creatives-sub fade-up">Реклама, яку хочеться дивитись, а не скіпати. Ось як виглядають крео для моїх клієнтів.</p>
+    <h2 class="creatives-title fade-up">Підключаємо дизайнера,<br><em>аби ваша реклама виглядала просто ВАУ</em></h2>
+    <p class="creatives-sub fade-up">Креативи, які чіпляють увагу і виглядають дорожче за конкурентів у стрічці.</p>
   </div>
   <div class="creatives-track-wrap fade-up">
     <div class="creatives-track">
@@ -276,41 +303,29 @@ fbq('track','PageView');
   <div class="offer-grid">
     <div class="offer-card featured fade-up">
       <div>
-        <div class="offer-card-tag">🔥 Вхідний офер · Обмежена пропозиція</div>
-        <div class="offer-card-title">14 днів реклами за 500 zł</div>
-        <div class="offer-card-text">Запускаємо повноцінну рекламну кампанію. Я роблю все сам — рекламу, картинки, налаштування. Ти просто чекаєш на перші заявки і дивишся що відбувається.<br><br>Хочеш продовжити — продовжуємо. Ні — без образ. Ніяких зобов'язань.</div>
+        <div class="offer-card-tag">🔥 Тестовий офер · 7 днів</div>
+        <div class="offer-card-title">7 днів — тестовий період за 500 zł</div>
+        <div class="offer-card-text">Запускаю вам повноцінну рекламну кампанію. Ваша задача — офігіти від мого підходу, встигати обробляти заявки і виділити нормальний рекламний бюджет.<br><br>За тиждень ви одразу побачите мій підхід в роботі.</div>
         <div class="price-row"><span class="price-big">500 zł</span><span class="price-old">1000 zł</span></div>
-        <div class="price-note">замість звичайної вартості · 14 днів повного ведення</div>
+        <div class="price-note">7 днів повного ведення · тестовий формат без зайвої бюрократії</div>
       </div>
       <div>
         <div class="offer-includes">
-          <div class="offer-item">Розбір твого бізнесу і конкурентів</div>
-          <div class="offer-item">2–3 рекламних картинки під твою нішу</div>
+          <div class="offer-item">Розбір вашого бізнесу і конкурентів</div>
+          <div class="offer-item">2–3 рекламних картинки під вашу нішу</div>
           <div class="offer-item">Повне налаштування реклами з нуля</div>
           <div class="offer-item">Тест різних аудиторій — хто реально купує</div>
-          <div class="offer-item">Звіт через 7 і 14 днів що відбулось</div>
+          <div class="offer-item">Звіт через 7 днів: що відбулось і які наступні кроки</div>
           <div class="offer-item">Порада як зробити так щоб люди купували, а не просто писали</div>
         </div>
-        <a href="#contact" class="btn-primary" style="margin-top:28px;display:inline-block">Хочу запустити за 500 zł</a>
+        <a href="#contact" class="btn-primary" style="margin-top:28px;display:inline-block">Хочу тест 7 днів за 500 zł</a>
       </div>
-    </div>
-    <div class="offer-card fade-up">
-      <div class="offer-card-tag">Стартовий крок</div>
-      <div class="offer-card-title">Безкоштовний дзвінок</div>
-      <div class="offer-card-text">30 хвилин — розкажи про бізнес, я скажу що реально може дати рекламу і скільки це коштуватиме. Без продажів і тиску.</div>
-      <div class="offer-price">БЕЗКОШТОВНО →</div>
-    </div>
-    <div class="offer-card fade-up">
-      <div class="offer-card-tag">Для тих хто вже побачив результат</div>
-      <div class="offer-card-title">Реклама щомісяця</div>
-      <div class="offer-card-text">Я веду кабінет постійно. Нова реклама, нові тести, щотижневий звіт. Ти займаєшся своїм — клієнти приходять самі.</div>
-      <div class="offer-price">Індивідуально →</div>
     </div>
   </div>
 </section>
 
 <section class="clients-section" id="clients">
-  <div class="section-tag">Мої клієнти у Польщі</div>
+  <div class="section-tag">З ким я уже працював у Польщі?</div>
   <div class="clients-grid fade-up">
     <div class="client-card"><div class="client-avatar"><img src="data:image/jpeg;base64,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" alt="Fresh Beauty"></div><div class="client-info"><div class="client-name">Fresh Beauty</div><div class="client-niche">Магазин косметики</div><div class="client-city">Варшава</div><div class="client-handle">@freshbeauty.warsaw</div></div></div>
     <div class="client-card"><div class="client-avatar"><img src="data:image/jpeg;base64,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" alt="Ellen Ukraine"></div><div class="client-info"><div class="client-name">Ellen Ukraine</div><div class="client-niche">Піжами / одяг для сну</div><div class="client-city">Інтернет</div><div class="client-handle">@ellenukraine</div></div></div>
@@ -345,12 +360,13 @@ fbq('track','PageView');
         <div class="b-text">Таргетолог · Варшава</div>
       </div>
     </div>
-    <div class="fade-up">
+    <div class="fade-up why-content">
       <h2 class="why-headline">Чому<br>саме <em>я</em></h2>
       <div class="why-body">
-        <p>5 років у таргеті. Живу у Варшаві — не консультую здалеку, а знаю польський ринок зсередини.</p>
-        <p>Я сам підприємець. Розумію що таке "гроші вкладені — результату немає". Тому працюю так, щоб мені не соромно було показати звіт.</p>
-        <p>Паралельно веду 12+ клієнтів у Польщі — і кожен знає що до мене можна написати і отримати відповідь сьогодні.</p>
+        <p>Ви точно бачили купу інших таргетологів, поки вам трапилась моя реклама. Впевнений, ви перейшли по ній, бо щось вас зачепило: копірайтинг, стиль, подача або креатив.</p>
+        <p>Я в таргеті уже 6-й рік, дохрена часу працював з різними підприємцями і запускав власні проекти, тому знаю цінність кожного долара.</p>
+        <p>Не буду тут вихвалятись кейсами чи відгуками, скажу просто: мені НЕ похер на клієнта. Навіть якщо вам не сподобається результат або мій підхід на тестовому тижні — поверну кошти.</p>
+        <p>Тому якщо готові — залишайте заявку, обговоримо ваш проект.</p>
       </div>
       <div class="why-socials">
         <a href="https://t.me/yr_bud" target="_blank" class="why-social">
@@ -363,10 +379,9 @@ fbq('track','PageView');
         </a>
       </div>
       <div class="why-points">
-        <div class="why-point"><div class="why-point-icon">📍</div><div><div class="why-point-title">Я тут, у Польщі</div><div class="why-point-desc">Знаю скільки коштує клік, яка аудиторія купує і що зараз реально працює на польському ринку.</div></div></div>
-        <div class="why-point"><div class="why-point-icon">🎯</div><div><div class="why-point-title">Мені важливий твій результат</div><div class="why-point-desc">Не "реклама запущена". А заявки прийшли. Різниця велика.</div></div></div>
-        <div class="why-point"><div class="why-point-icon">💬</div><div><div class="why-point-title">Пишеш — відповідаю сьогодні</div><div class="why-point-desc">Не завтра, не "побачу ввечері". Я на зв'язку і це не пустий рядок в резюме.</div></div></div>
-        <div class="why-point"><div class="why-point-icon">📊</div><div><div class="why-point-title">Ти завжди знаєш що відбувається</div><div class="why-point-desc">Раз на тиждень — звіт простою мовою: скільки витрачено, скільки заявок, що далі.</div></div></div>
+        <div class="why-point"><div class="why-point-icon">🎯</div><div><div class="why-point-title">Мені важливий ваш результат</div><div class="why-point-desc">Не "реклама запущена". А заявки прийшли. Різниця велика.</div></div></div>
+        <div class="why-point"><div class="why-point-icon">💬</div><div><div class="why-point-title">Я практично завжди онлайн</div><div class="why-point-desc">Не завтра, не "побачу ввечері". Я на зв'язку і це не пустий рядок в резюме.</div></div></div>
+        <div class="why-point"><div class="why-point-icon">📊</div><div><div class="why-point-title">Ви завжди знаєте, що відбувається</div><div class="why-point-desc">Раз на тиждень — звіт простою мовою: скільки витрачено, скільки заявок, що далі.</div></div></div>
       </div>
     </div>
   </div>
@@ -374,10 +389,15 @@ fbq('track','PageView');
 
 <section class="cta-section" id="contact">
   <div class="cta-bg"></div>
-  <div class="cta-label">Без зобов'язань · Відповідаю сьогодні</div>
   <h2 class="cta-title">Напиши —<br><span class="line2">домовимось</span></h2>
   <div class="cta-form" id="ctaForm">
-    <input type="tel" class="cta-input" placeholder="+48 ___ ___ ___" id="phoneInput">
+    <div class="phone-row">
+      <select class="code-select" id="countryCode">
+        <option value="+48">+48</option>
+        <option value="+380">+380</option>
+      </select>
+      <input type="tel" class="cta-input" placeholder="___ ___ ___" id="phoneInput">
+    </div>
     <button class="cta-submit" onclick="handleSubmit()">Надіслати</button>
   </div>
   <div id="formSuccess" style="display:none;max-width:480px;margin:0 auto 20px;background:rgba(200,255,0,0.08);border:1px solid var(--accent);padding:28px 32px;text-align:center">
@@ -411,6 +431,34 @@ fbq('track','PageView');
   }, {threshold:0.08});
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
+  function animateCounter(el, to) {
+    const duration = 1200;
+    const start = performance.now();
+    function frame(now) {
+      const p = Math.min((now - start) / duration, 1);
+      const current = Math.floor(to * p);
+      el.textContent = `${current}+`;
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  const statsObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const gauge = document.getElementById('yearsGauge');
+      if (gauge) gauge.classList.add('active');
+      document.querySelectorAll('.stat-counter').forEach(el => {
+        const to = Number(el.getAttribute('data-count-to') || 0);
+        animateCounter(el, to);
+      });
+      statsObserver.disconnect();
+    });
+  }, { threshold: 0.4 });
+
+  const statsBar = document.querySelector('.stats-bar');
+  if (statsBar) statsObserver.observe(statsBar);
+
   // ── LEAD EVENT ─────────────────────────────────────────────────
   // Google Ads: замість AW-XXXXXXXXX/XXXXXXXXXX — твій conversion label (коли підключиш)
   function fireLeadEvent(label) {
@@ -429,11 +477,13 @@ fbq('track','PageView');
 
   // ── ФОРМА ──────────────────────────────────────────────────────
   function handleSubmit() {
+    const code = document.getElementById('countryCode');
     const input = document.getElementById('phoneInput');
     if (!input.value.trim()) return;
+    const normalizedPhone = `${code ? code.value : '+48'} ${input.value.trim()}`;
     document.getElementById('ctaForm').style.display = 'none';
     document.getElementById('formSuccess').style.display = 'block';
-    fireLeadEvent('form_phone');
+    fireLeadEvent(`form_phone_${normalizedPhone}`);
   }
 
   // ── TELEGRAM-КЛІКИ ─────────────────────────────────────────────
