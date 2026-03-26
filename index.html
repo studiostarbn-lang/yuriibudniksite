@@ -457,15 +457,32 @@ fbq('track','PageView');
     console.log('[Lead]', label); // для тестування
   }
 
+  async function sendLeadToTelegram(phone) {
+    const res = await fetch('/.netlify/functions/send-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        phone,
+        source: 'landing_form'
+      })
+    });
+    if (!res.ok) throw new Error('Lead send failed');
+  }
+
   // ── ФОРМА ──────────────────────────────────────────────────────
-  function handleSubmit() {
+  async function handleSubmit() {
     const code = document.getElementById('countryCode');
     const input = document.getElementById('phoneInput');
     if (!input.value.trim()) return;
     const normalizedPhone = `${code ? code.value : '+48'} ${input.value.trim()}`;
-    document.getElementById('ctaForm').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-    fireLeadEvent(`form_phone_${normalizedPhone}`);
+    try {
+      await sendLeadToTelegram(normalizedPhone);
+      document.getElementById('ctaForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+      fireLeadEvent(`form_phone_${normalizedPhone}`);
+    } catch (e) {
+      alert('Не вдалось надіслати заявку. Спробуйте ще раз або напишіть у Telegram.');
+    }
   }
 
   // ── TELEGRAM-КЛІКИ ─────────────────────────────────────────────
