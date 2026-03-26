@@ -40,27 +40,12 @@ fbq('track','PageView');
   .scroll-arrow{width:1px;height:40px;background:var(--white);animation:sdown 2s ease-in-out infinite}
   @keyframes sdown{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
-  .stats-bar{background:var(--accent);padding:24px 40px;display:flex;flex-wrap:wrap}
-  .stat-item{flex:1;min-width:120px;display:flex;flex-direction:column;gap:4px;padding:8px 24px 8px 0;border-right:1px solid rgba(8,8,8,0.2)}
-  .stat-item:first-child{padding-left:0}
-  .stat-item:last-child{border-right:none}
-  .stat-num{font-family:'Unbounded',sans-serif;font-size:28px;font-weight:900;color:var(--black);line-height:1}
-  .stat-label{font-size:11px;color:rgba(8,8,8,0.6)}
-  .stat-counter{font-family:'Unbounded',sans-serif;font-size:28px;font-weight:900;color:var(--black);line-height:1}
-  .stat-review-link{margin-top:8px;display:inline-block;font-size:11px;color:rgba(8,8,8,0.7);text-decoration:underline;text-underline-offset:3px}
-  .stat-gauge{position:relative;width:152px;height:90px}
-  .stat-gauge-arc{position:absolute;left:50%;bottom:10px;width:128px;height:64px;border:3px solid rgba(8,8,8,0.25);border-bottom:none;border-radius:128px 128px 0 0;transform:translateX(-50%)}
-  .stat-gauge-needle{position:absolute;left:50%;bottom:12px;width:3px;height:56px;background:var(--black);border-radius:3px;transform-origin:bottom center;transform:translateX(-50%) rotate(-80deg);transition:transform 1.2s cubic-bezier(.2,.9,.2,1)}
-  .stat-gauge.active .stat-gauge-needle{transform:translateX(-50%) rotate(80deg)}
-  .stat-gauge-scale{position:absolute;left:50%;bottom:10px;width:136px;height:66px;transform:translateX(-50%);font-family:'Unbounded',sans-serif;font-size:9px;color:rgba(8,8,8,0.62)}
-  .stat-gauge-scale span{position:absolute;line-height:1}
-  .stat-gauge-scale span:nth-child(1){left:0;bottom:10px}
-  .stat-gauge-scale span:nth-child(2){left:16px;bottom:30px}
-  .stat-gauge-scale span:nth-child(3){left:36px;bottom:45px}
-  .stat-gauge-scale span:nth-child(4){left:60px;bottom:54px}
-  .stat-gauge-scale span:nth-child(5){left:84px;bottom:45px}
-  .stat-gauge-scale span:nth-child(6){left:104px;bottom:30px}
-  .stat-gauge-scale span:nth-child(7){left:122px;bottom:10px}
+  .stats-bar{background:var(--accent);padding:24px 40px;display:grid;grid-template-columns:1fr 1fr;gap:2px}
+  .stat-item{background:rgba(8,8,8,0.04);padding:20px 18px;display:flex;flex-direction:column;gap:8px;min-height:118px;justify-content:center}
+  .stat-num{font-family:'Unbounded',sans-serif;font-size:44px;font-weight:900;color:var(--black);line-height:0.95;letter-spacing:-0.02em}
+  .stat-label{font-size:20px;color:rgba(8,8,8,0.68);line-height:1.2;max-width:20ch}
+  .stat-counter{font-family:'Unbounded',sans-serif;font-size:44px;font-weight:900;color:var(--black);line-height:0.95;letter-spacing:-0.02em}
+  .stat-review-link{margin-top:2px;display:inline-block;font-size:17px;color:rgba(8,8,8,0.78);text-decoration:underline;text-underline-offset:3px}
 
   .section{padding:80px 40px}
   .section-tag{font-family:'Unbounded',sans-serif;font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);margin-bottom:40px;display:flex;align-items:center;gap:12px}
@@ -182,8 +167,11 @@ fbq('track','PageView');
     .hero-sub{margin-top:0;max-width:460px}
     .hero-cta-group{flex-direction:column;align-items:flex-end;margin-top:0}
     .btn-primary,.btn-secondary{align-self:auto}
-    .stats-bar{flex-wrap:nowrap;padding:28px 48px}
-    .stat-item{min-width:auto}
+    .stats-bar{grid-template-columns:repeat(5,minmax(0,1fr));padding:28px 48px}
+    .stat-item{min-height:152px;padding:24px 20px}
+    .stat-num,.stat-counter{font-size:56px}
+    .stat-label{font-size:29px}
+    .stat-review-link{font-size:22px}
     .section{padding:100px 48px}
     .how-section{padding:100px 48px}
     .creatives-section{padding:100px 0}
@@ -239,14 +227,7 @@ fbq('track','PageView');
 </section>
 
 <div class="stats-bar">
-  <div class="stat-item">
-    <div class="stat-gauge" id="yearsGauge">
-      <div class="stat-gauge-arc"></div>
-      <div class="stat-gauge-needle"></div>
-      <div class="stat-gauge-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span></div>
-    </div>
-    <div class="stat-label">6 років у таргеті</div>
-  </div>
+  <div class="stat-item"><div class="stat-counter" data-count-to="6">0+</div><div class="stat-label">років досвіду в таргеті</div></div>
   <div class="stat-item"><div class="stat-counter" data-count-to="80">0+</div><div class="stat-label">кейсів, за які не соромно</div></div>
   <div class="stat-item"><div class="stat-counter" data-count-to="60">0+</div><div class="stat-label">чесних відгуків клієнтів</div><a class="stat-review-link" href="https://www.instagram.com/juriy_budnik/" target="_blank">Переглянути відгуки</a></div>
   <div class="stat-item"><div class="stat-num">FB+IG</div><div class="stat-label">платформи</div></div>
@@ -446,8 +427,6 @@ fbq('track','PageView');
   const statsObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      const gauge = document.getElementById('yearsGauge');
-      if (gauge) gauge.classList.add('active');
       document.querySelectorAll('.stat-counter').forEach(el => {
         const to = Number(el.getAttribute('data-count-to') || 0);
         animateCounter(el, to);
